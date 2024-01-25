@@ -18,13 +18,13 @@ export class CalculatorComponent {
   tempData = '';
 
   //find last operand
-  findLastOperand(){
-    let lastNum ="";
-    for(let i=this.input.length; i>0; i--){
-      if(this.input[i] ){}
+  findLastOperand() {
+    let lastNum = '';
+    for (let i = this.input.length; i > 0; i--) {
+      if (this.input[i]) {
+      }
     }
   }
-  
 
   pressNum(num: string) {
     this.input = this.input + num;
@@ -39,30 +39,22 @@ export class CalculatorComponent {
     }
     const lastKey = this.input[this.input.length - 1];
 
-
-    if(lastKey === '*' && op !== '-'){
+    if (lastKey === '*' && op !== '-') {
       alert('Enter a number');
       return;
     }
 
-    if (
-      lastKey === '+' ||
-      lastKey === '-' ||
-      // lastKey === '*' ||
-      lastKey === '/'
-    ) {
+    if (lastKey === '+' || lastKey === '-' || lastKey === '/') {
       alert('Enter a number');
       return;
     }
 
-    
     this.input = this.input + op;
     this.tempData = this.input;
     console.log(this.input);
   }
 
- 
-history:string ="";
+  history: string = '';
 
   calcAns() {
     const lastKey = this.input[this.input.length - 1];
@@ -76,19 +68,20 @@ history:string ="";
       alert('Enter a number');
       return;
     }
-    this.history += "\n"+this.input;
+    this.history += '\n' + this.input;
     this.result = eval(this.input);
     this.tempData = this.result;
-    this.history += "=" + this.result;
+    this.history += '=' + this.result;
     console.log(this.result);
     // this.tempData = this.result;
     this.input = this.result;
   }
-  
+
   clear() {
     this.input = '';
     this.result = '';
     this.tempData = '';
+    this.history = '';
   }
 }
 //.replace(/(\..*)\./g, '$1')
