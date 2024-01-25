@@ -12,7 +12,7 @@
           type="text"
           id="result"
           name="inp"
-          oninput="this.value = this.value.replace(/[^0-9.]/g, '')"
+          oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')"
           placeholder="0"
           [(ngModel)]="tempData"
         ></textarea>

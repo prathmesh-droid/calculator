@@ -57,24 +57,30 @@ export class CalculatorComponent {
   history: string = '';
 
   calcAns() {
-    const lastKey = this.input[this.input.length - 1];
+    try {
+      const lastKey = this.input[this.input.length - 1];
 
-    if (
-      lastKey === '+' ||
-      lastKey === '-' ||
-      lastKey === '*' ||
-      lastKey === '/'
-    ) {
-      alert('Enter a number');
+      if (
+        lastKey === '+' ||
+        lastKey === '-' ||
+        lastKey === '*' ||
+        lastKey === '/'
+      ) {
+        alert('Enter a number');
+        return;
+      }
+      this.history += '\n' + this.input;
+      this.result = eval(this.input);
+      this.tempData = this.result;
+      this.history += '=' + this.result;
+      console.log(this.result);
+      // this.tempData = this.result;
+      this.input = this.result;
+    } catch (error) {
+      alert('error');
+      this.clear();
       return;
     }
-    this.history += '\n' + this.input;
-    this.result = eval(this.input);
-    this.tempData = this.result;
-    this.history += '=' + this.result;
-    console.log(this.result);
-    // this.tempData = this.result;
-    this.input = this.result;
   }
 
   clear() {
