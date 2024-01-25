@@ -1,0 +1,49 @@
+<div>
+  <button routerLink="" routerLinkActive="active">Go To Calculator</button>
+  <h1>Converter</h1>
+  <table id="converter">
+    <tr>
+      <div>
+        <td>
+          Celcius
+          <input type="text" placeholder="temp (C)" [(ngModel)]="inp1" />
+        </td>
+      </div>
+    </tr>
+    <tr>
+      <td>
+        Fehrenheit
+        <input type="text" placeholder="temp (F)" [(ngModel)]="inp2" />
+      </td>
+    </tr>
+    <hr />
+    <tr>
+      <td>
+        Answer
+        <input type="text" placeholder="" [(ngModel)]="result" />
+      </td>
+    </tr>
+    <tr>
+      <button (click)="convert(inp1, inp2)">Convert</button>
+    </tr>
+  </table>
+</div>
+<hr>
+
+<div class="currency">
+  <h1>currency converter</h1>
+  <h3>Value to convert</h3>
+  <input type="text" [(ngModel)]="inpVal">
+
+  <label name="fromLable">From:</label>
+  <select id="fromCurr" name="curr1"  [(ngModel)]="curr1">
+    <option [value]="country" *ngFor="let country of arr">{{country}}</option>
+  </select>
+  <label name="toLable" >To:</label>
+  <select id="fromCurr" name="curr2" [(ngModel)]="curr2">
+    <option [value]="country" *ngFor="let country of arr">{{country}}</option>
+  </select>
+<hr>
+  <button (click)="getCurr()">Convert</button>
+  <input placeholder="Converted Value" [(ngModel)]="answer">
+</div>

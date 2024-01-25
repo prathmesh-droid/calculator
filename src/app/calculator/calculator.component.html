@@ -1,0 +1,93 @@
+<body>
+  <!-- Create table -->
+  <button routerLink="converter" routerLinkActive="active">
+    Go To Converter
+  </button>
+  <h1>Calculator</h1>
+
+  <table id="calcu">
+    <tr>
+      <td colspan="6">
+        <textarea
+          type="text"
+          id="result"
+          name="inp"
+          oninput="this.value = this.value.replace(/[^0-9.]/g, '')"
+          placeholder="0"
+          [(ngModel)]="tempData"
+        ></textarea>
+      </td>
+      <textarea
+        name="historyArea"
+        id="history"
+        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')"
+        cols="5"
+        placeholder="History"
+        rows="5"
+        [(ngModel)]="history"
+      ></textarea>
+
+      <td>
+        <button class="delButn" (click)="clear()">Del</button>
+      </td>
+    </tr>
+
+    <tr>
+      <!-- <td><input type="button" value=  (click)="pressNum(2)"></td>  -->
+      <td>
+        <button class="numButton" value="1" (click)="pressNum('1')">1</button>
+      </td>
+      <td>
+        <button class="numButton" value="2" (click)="pressNum('2')">2</button>
+      </td>
+      <td>
+        <button class="numButton" (click)="pressNum('3')">3</button>
+      </td>
+      <td>
+        <button class="opButton" (click)="pressOp('/')">/</button>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button class="numButton" (click)="pressNum('4')">4</button>
+      </td>
+      <td>
+        <button class="numButton" (click)="pressNum('5')">5</button>
+      </td>
+      <td>
+        <button class="numButton" (click)="pressNum('6')">6</button>
+      </td>
+      <td>
+        <button class="opButton" (click)="pressOp('*')">*</button>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button class="numButton" (click)="pressNum('7')">7</button>
+      </td>
+      <td>
+        <button class="numButton" (click)="pressNum('8')">8</button>
+      </td>
+      <td>
+        <button class="numButton" (click)="pressNum('9')">9</button>
+      </td>
+      <td>
+        <button class="opButton" (click)="pressOp('-')">-</button>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button class="numButton" (click)="pressNum('0')">0</button>
+      </td>
+      <td>
+        <button class="numButton" (click)="pressNum('.')">.</button>
+      </td>
+      <td>
+        <button class="opButton" (click)="calcAns()">=</button>
+      </td>
+      <td>
+        <button class="opButton" (click)="pressOp('+')">+</button>
+      </td>
+    </tr>
+  </table>
+</body>
